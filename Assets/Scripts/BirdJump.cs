@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BirdJump : MonoBehaviour
 {
@@ -21,5 +22,16 @@ public class BirdJump : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpPower;
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector2.up * jumpPower;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (ShowScore.score > ShowScore.bestScore)
+            ShowScore.bestScore = ShowScore.score;
+        SceneManager.LoadScene("GameOverScene");
     }
 }
