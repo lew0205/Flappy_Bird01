@@ -9,7 +9,6 @@ public class ShowScore : MonoBehaviour
 
     public static int bestScore = 0;
 
-    // Update is called once per frame
     void Update()
     {
         GetComponent<Text>().text = score.ToString();
